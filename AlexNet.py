@@ -75,7 +75,7 @@ def scheduler(epoch):
   else:
     return 0.0001
 
-callback = tf.keras.callbacks.LearningRateScheduler(scheduler)
+callback = LearningRateScheduler(scheduler)
 
 model.compile(loss='categorical_crossentropy', optimizer=optimizers.sgd(lr=0.01, momentum=0.9), metrics=['accuracy'])
 model.fit_generator(train_generator, epochs=50, validation_data=validation_generator, callbacks=[callback])
